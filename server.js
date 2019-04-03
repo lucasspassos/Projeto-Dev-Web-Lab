@@ -2,13 +2,12 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
-
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-//const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
-const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
+//const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2000;
 
 app.get('/show', (req, res) => {
   res.send({ express: 'Hello From Express' });
@@ -19,8 +18,8 @@ MongoClient.connect(uri,  { useNewUrlParser: true }, (err, client) => {
     
     db = client.db("database")
 
-    app.listen(3000, () => {
-        console.log('server running on port 3000')
+    app.listen(2000, () => {
+        console.log('server running on port 2000')
     })
 }) 
 
@@ -35,8 +34,6 @@ app.get('/', (req, res) => {
 app.get('/', (req, res) => {
     let cursor = db.collection('data').find()
 })
-
-
 
 app.route("/cadastroUsuario")
 .get((req, res) => {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Disciplinas</title>
+</head>
+<body>
+
+    <h2>Cadastrar Disciplina<h2>
+    <hr>
+    <h4>Informações da Disciplina</h4>
+    <form action="/cadDisciplina" method="POST">
+        <input type="text" placeholder="Código da Disciplina" name="codDisciplina">
+        <input type="text" placeholder="Nome da Disciplina" name="nomeDisciplina"><br>
+        <input list="Cursos" placeholder="Cursos relacionados" name="cursosRel">
+        <datalist id="Cursos">
+            <option value="Engenharia da Computação">
+            <option value="Engenharia Elétrica">
+            <option value="Engenharia Mecânica">
+        </datalist>   
+       
+        <button type="submit">Cadastrar</button>
+        <button type="submit">Cancelar</button>
+    </form>
+        <!-- <form action="/showDisciplinas" method="POST">
+            <button type="submit">Consultar Disciplinas</button>
+        </form> -->
+    </form> 
+</body>
+</html>
