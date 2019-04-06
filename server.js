@@ -1,6 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+var cors = require('cors')
+
 const app = express()
+app.use(cors())
 
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
@@ -18,8 +21,8 @@ MongoClient.connect(uri,  { useNewUrlParser: true }, (err, client) => {
     
     db = client.db("database")
 
-    app.listen(2000, () => {
-        console.log('server running on port 2000')
+    app.listen(4000, () => {
+        console.log('server running on port 4000')
     })
 }) 
 
@@ -229,7 +232,7 @@ app.post('/cadUsuario', (req, res) => {
         if (err) return console.log('erro - salvar - usuário')
 
         console.log('sucesso - salvar - usuário')
-        res.redirect('/cadastroUsuario')
+        res.redirect('/NewUser')
     })
 })
 
