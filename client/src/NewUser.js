@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './login.css';
 
 class NewUser extends Component {
   state = {
@@ -28,29 +29,32 @@ class NewUser extends Component {
             <h2>Cadastrar Usuário</h2>
             <h4>Informações Pessoais</h4>
             <form action="/cadUsuario" method="POST">
-                <input type="text" placeholder="Nome" name="nome"/>
-                <input type="text" placeholder="Sobrenome" name="sobrenome"/>
-                <input type="text" placeholder="CPF" name="cpf"/>
+                <input className="Input" type="text" placeholder="Nome" name="nome"/>
+                <input className="Input" type="text" placeholder="Sobrenome" name="sobrenome"/>
+                <input className="Input" type="text" placeholder="CPF" name="cpf"/>
                 <br/>
-                <input list="Titulo" placeholder="Tipo de Usuário" name="titulacao"/>
+                <input className="Input" list="Titulo" placeholder="Tipo de Usuário" name="titulacao"/>
                 <br/>
                 <datalist id="Titulo">
                     <option value="Administrador"/>
                     <option value="Coordenador"/>
                     <option value="Professor"/>
                 </datalist>  
-                <input type="text" placeholder="Email" name="email"/>
+                <input className="Input" type="text" placeholder="Email" name="email"/>
                 <br/>
-                <label >É membro do NDE?/</label>>
+                <hr></hr>
+                <label >É membro do NDE?</label>
+                <br></br>
                 <input type="radio" name="membroNDE" value="sim"/> SIM
                 <input type="radio" name="membroNDE" value="não"/> NÃO
                 <br/>
+                <hr></hr>
                 <h4>Informações de Acesso</h4>
-                <input type="text" placeholder="Senha" name="senha"/>
-                <input type="text" placeholder="Repita a senha" name="rSenha"/>
+                <input className="Input" type="text" placeholder="Senha" name="senha"/>
+                <input className="Input" type="text" placeholder="Repita a senha" name="rSenha"/>
                 <br/>    
-                <button type="submit">Cadastrar</button>
-                <button type="submit">Cancelar</button>
+                <button className="Btn" type="submit">Cadastrar</button>
+                <button className="BtnR" type="submit">Cancelar</button>
             </form> 
         </header>
         <p className="App-intro">{this.state.response}</p>

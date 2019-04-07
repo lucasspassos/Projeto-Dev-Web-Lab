@@ -7,10 +7,11 @@ app.use(cors())
 
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
-//const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
+//const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
+//const uri = "mongodb+srv://admin:admin@cluster0-ibzmn.mongodb.net/test?retryWrites=true";
 
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 4000;
 
 app.get('/show', (req, res) => {
   res.send({ express: 'Hello From Express' });
@@ -241,7 +242,7 @@ app.post('/cadPlano', (req, res) => {
         if (err) return console.log('erro - salvar - plano')
 
         console.log('sucesso - salvar - plano')
-        res.redirect('/cadastroPlano')
+        res.redirect('/NewPlan')
     })
 })
 
