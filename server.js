@@ -7,8 +7,8 @@ app.use(cors())
 
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-//const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
-const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
+//const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
 //const uri = "mongodb+srv://admin:admin@cluster0-ibzmn.mongodb.net/test?retryWrites=true";
 
 const port = process.env.PORT || 4000;
@@ -130,10 +130,14 @@ app.route("/cadastroTurma")
 
 app.route("/showUsuarios")
 .get((req, res) => {
-    db.collection('data.usuarios').find().toArray((err, results) => {
+    db.collection('data.usuarios').find().toArray((err, usuarios) => {
         if (err) return console.log(err)
 
-        res.render('showUsuarios.ejs', {data: results})
+        console.log("dentro da /showUsuarios")
+
+        res.render('showUsuarios.ejs', {data: usuarios})
+
+        console.log("chamou a ShowUsers")
     })
 })
 .post((req, res) => {
@@ -233,7 +237,12 @@ app.post('/cadUsuario', (req, res) => {
         if (err) return console.log('erro - salvar - usuário')
 
         console.log('sucesso - salvar - usuário')
-        res.redirect('/NewUser')
+    })
+
+    db.collection('data.usuarios').find().toArray((err, usuarios) => {
+        if (err) return console.log(err)
+
+        res.render('showUsuarios.ejs', {data: usuarios})
     })
 })
 
@@ -242,7 +251,11 @@ app.post('/cadPlano', (req, res) => {
         if (err) return console.log('erro - salvar - plano')
 
         console.log('sucesso - salvar - plano')
-        res.redirect('/NewPlan')
+    })
+    db.collection('data.planos').find().toArray((err, planos) => {
+        if (err) return console.log(err)
+
+        res.render('showPlanos.ejs', {data: planos})
     })
 })
 
@@ -251,7 +264,11 @@ app.post('/cadCurso', (req, res) => {
         if (err) return console.log('erro - salvar - curso')
 
         console.log('sucesso - salvar - curso')
-        res.redirect('/cadastroCurso')
+    })
+    db.collection('data.cursos').find().toArray((err, cursos) => {
+        if (err) return console.log(err)
+
+        res.render('showCursos.ejs', {data: cursos})
     })
 })
 
@@ -260,7 +277,11 @@ app.post('/cadDisciplina', (req, res) => {
         if (err) return console.log('erro - salvar - disciplina')
 
         console.log('sucesso - salvar - disciplina')
-        res.redirect('/cadastroDisciplina')
+    })
+    db.collection('data.disciplinas').find().toArray((err, disciplinas) => {
+        if (err) return console.log(err)
+
+        res.render('showDisciplinas.ejs', {data: disciplinas})
     })
 })
 
@@ -269,7 +290,11 @@ app.post('/cadTurma', (req, res) => {
         if (err) return console.log('erro - salvar - turma')
 
         console.log('sucesso - salvar - turma')
-        res.redirect('/cadastroTurma')
+    })
+    db.collection('data.turmas').find().toArray((err, turmas) => {
+        if (err) return console.log(err)
+
+        res.render('showTurmas.ejs', {data: turmas})
     })
 })
 

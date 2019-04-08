@@ -2,9 +2,12 @@ import React from "react";
 import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
 import App from "./App";
 import AnotherScreen from "./AnotherScreen";
-import NewUser from "./NewUser";
 import Login from  "./Login";
+import NewUser from "./NewUser";
 import NewPlan from "./NewPlan";
+import NewCourse from "./NewCourse"
+import NewDiscipline from "./NewDiscipline"
+import NewClass from "./NewClass";
 
 const DefaultLayout = ({ children }) => {
   return <div className="layout">{children}</div>;
@@ -16,9 +19,12 @@ const RoutesPath = ({ Layout = DefaultLayout }) => {
       <Switch>
         <Route path="/app" component={App} />
         <Route path="/another_route" component={AnotherScreen} />
-        <Route path="/newUser" component={NewUser}/>
         <Route path="/Login" component={Login}/>
+        <Route path="/newUser" component={NewUser}/>
         <Route path="/newPlan" component={NewPlan}/>
+        <Route path="/newCourse" component={NewCourse}/>
+        <Route path="/newDiscipline" component={NewDiscipline}/>
+        <Route path="/newClass" component={NewClass}/>
         <Redirect from="/" to="/app" />
       </Switch>
     </Layout>
