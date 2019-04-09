@@ -27,6 +27,26 @@ MongoClient.connect(uri,  { useNewUrlParser: true }, (err, client) => {
     })
 }) 
 
+
+app.get('/entrar', function(req, res){
+    // Fazendo uma consulta no banco de dados
+    collection.find().toArray(function(err, result){
+       res.render('/app', { usuarios : result });
+    });
+ });
+
+ //procura no usuario no banco
+ app.get('/entrar/:cpf', function(req, res){
+    // Recebendo os parâmetros de um query string
+    var id = req.params.id;
+    // Fazendo uma consulta no banco de dados
+    var params = {usuario : {cpf: cpf}};
+    collection.find(params).toArray(function(err, result){
+       res.render('ver', { usuario : result.usuario });
+    });
+ });
+
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.set('view engine', 'ejs')
@@ -59,6 +79,7 @@ app.route("/cadastroPlano")
         res.render('cadastroPlano.ejs', {data: results})
     })
 })
+
 .post((req, res) => {
     res.redirect('/cadastroPlano')
 })
@@ -174,6 +195,7 @@ app.route("/showPlanos")
         res.render('showPlanos.ejs', {data: results})
     })
 })
+
 .post((req, res) => {
     db.collection('data').save(req.body, (err, result) => {
         if (err) return console.log(err)

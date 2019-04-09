@@ -26,7 +26,20 @@ class NewPlan extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <h2>Plano de Ensino</h2>
+        <nav id="menu">
+          <ul>
+              <li><a href="/App">Home</a></li>
+              <li><a href="/NewUser">Cadastrar Usuários</a></li>
+              <li><a href="/NewPlan">Cadastrar Planos</a></li>
+              <li><a href="/NewDiscipline">Cadastrar Disciplinas</a></li>
+              <li><a href="/NewCourse">Cadastrar Cursos</a></li>
+              <li><a href="/NewClass">Cadastrar Turmas</a></li>
+              <li><a href="/Login">Sair</a></li>
+          </ul>
+        </nav>
+        </header>
+        <body className="log">
+        <h2>Plano de Ensino</h2>
             <form action="/cadPlano" method="POST">
                 <label>Disciplina</label>
                 <input className="Input" type="text" placeholder="Ex: Desenvolvimento de Aplicações Web" name="disciplina"/>
@@ -78,7 +91,7 @@ class NewPlan extends Component {
                 <textarea className="TextArea" placeholder="Quais livros ou links complementares são recomendados?" rows="10" cols="5" name="metodoAvaliação"></textarea>
                 <button  className="Btn" type="submit">Cadastrar</button>
             </form> 
-        </header>
+        </body>
         <p className="App-intro">{this.state.response}</p>
       </div>
     );

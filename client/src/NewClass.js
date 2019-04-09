@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './login.css';
@@ -26,35 +26,41 @@ class NewClass extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <h2>Cadastrar Turma</h2>
-         <h4>Informações Pessoais</h4>
-    <form action="/cadTurma" method="POST">
-        <input type="text" placeholder="Nome" name="nome"/>
-        <input type="text" placeholder="Sobrenome" name="sobrenome"/><br/>
-        <input type="text" placeholder="CPF" name="cpf"/>
-        <br/>
-        <input list="Titulo" placeholder="Tipo de Usuário" name="titulacao"/>
-        <datalist id="Titulo">
-            <option value="Administrador"/>
-            <option value="Coordenador"/>
-            <option value="Professor"/>
-        </datalist>   
-        <br/>
-        <input type="text" placeholder="Email" name="email"/>
-        <br/>
-        <label >É membro do NDE?</label><br/>
-        <input type="radio" name="membroNDE" value="sim"/> SIM
-        <input type="radio" name="membroNDE" value="não"/> NÃO
-        <br/>
-        <hr/> 
-        <h4>Informações de Acesso</h4>
-        <input type="text" placeholder="Senha" name="senha"/>
-        <input type="text" placeholder="Repita a senha" name="rSenha"/>
-        <br/>    
-        <hr/> 
-        <button type="submit">Cadastrar</button>
-    </form>
+        <nav id="menu">
+          <ul>
+              <li><a href="/App">Home</a></li>
+              <li><a href="/NewUser">Cadastrar Usuários</a></li>
+              <li><a href="/NewPlan">Cadastrar Planos</a></li>
+              <li><a href="/NewDiscipline">Cadastrar Disciplinas</a></li>
+              <li><a href="/NewCourse">Cadastrar Cursos</a></li>
+              <li><a href="/NewClass">Cadastrar Turmas</a></li>
+              <li><a href="/Login">Sair</a></li>
+          </ul>
+        </nav>
         </header>
+        <body className="log">
+            <form action="/cadTurma" method="POST">
+          <h2>Cadastrar Turma</h2>
+          <br></br>
+            <label className="LabelCad">Código da Turma</label>
+            <input className="Input" type="text" placeholder="Código da Turma" name="turma" />
+            <br />
+            <label className="LabelCad">Disciplina</label>
+            <input className="Input" list="Titulo" placeholder="Disciplina" name="disciplina" />
+            <datalist id="disciplina">
+              <option value="Desenvolvimento Web - Teoria" />
+              <option value="Desenvolvimento Web - Prática" />
+              <option value="Técnologias Web - Teoria" />
+              <option value="Técnologias Web - Prática" />
+            </datalist>
+            <br />
+            <label className="LabelCad">Horario inicial da aula</label>
+            <input className="Input" type="text" placeholder="Ex: 19:00" name="hora" />
+            <br />
+            <hr />
+            <button className="Btn"type="submit">Cadastrar</button>
+          </form>
+        </body>
         <p className="App-intro">{this.state.response}</p>
       </div>
     );

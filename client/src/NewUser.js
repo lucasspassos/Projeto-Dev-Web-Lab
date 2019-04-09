@@ -26,7 +26,20 @@ class NewUser extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <h2>Cadastrar Usuário</h2>
+        <nav id="menu">
+          <ul>
+              <li><a href="/App">Home</a></li>
+              <li><a href="/NewUser">Cadastrar Usuários</a></li>
+              <li><a href="/NewPlan">Cadastrar Planos</a></li>
+              <li><a href="/NewDiscipline">Cadastrar Disciplinas</a></li>
+              <li><a href="/NewCourse">Cadastrar Cursos</a></li>
+              <li><a href="/NewClass">Cadastrar Turmas</a></li>
+              <li><a href="/Login">Sair</a></li>
+          </ul>
+        </nav>
+        </header>
+        <body className="log">
+        <h2>Cadastrar Usuário</h2>
             <h4>Informações Pessoais</h4>
             <form action="/cadUsuario" method="POST">
                 <input className="Input" type="text" placeholder="Nome" name="nome"/>
@@ -56,7 +69,7 @@ class NewUser extends Component {
                 <button className="Btn" type="submit">Cadastrar</button>
                 <button className="BtnR" type="submit">Cancelar</button>
             </form> 
-        </header>
+        </body>
         <p className="App-intro">{this.state.response}</p>
       </div>
     );

@@ -26,20 +26,22 @@ class Login extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        <body className="log">
             <h3>Digite seus dados para Acessar!</h3>
-            <form action="/login" method="POST">
+
+            <form action="/entrar" method="POST">
                 <input className="Input" type="text" placeholder="CPF" name="cpf"/>
                 <br/>
                 <input className="Input" type="password" placeholder="Senha" name="senha"/>
                 <br/>
                 <button className="Btn" type="submit">Entrar</button>
             </form> 
-        </header>
+        </body>
         <p className="App-intro">{this.state.response}</p>
       </div>
     );
   }
 }
-
 export default Login;
