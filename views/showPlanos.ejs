@@ -1,28 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My CRUD in NodeJS</title>
+    <style>
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>My CRUD in NodeJS</title>
 </head>
+
 <body>
 
-<h2>Planos<h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <td>Plano nome</td>
-                <td>Plano sobrenome</td>
-            </tr>
-        </thead>
-        <tbody>
-        <% data.forEach(function(plano) { %>
-            <tr>
-                <td><%= plano.nome %></td>
-                <td><%= plano.sobrenome %></td>
-            </tr>
-            <% }) %>
-        </tbody>
-        </table>
-        <button><a href="/">Início</a></button>
+    <h2>Planos<h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Professor Responsavel</th>
+                        <th>Coordenador</th>
+                        <th>Atualização</th>
+                        <th>Teoria</th>
+                        <th>Pratica</th>
+                        <th>Total</th>
+                        <th>Ementa</th>
+                        <th>Objetivo</th>
+                        <th>Conteudo M1</th>
+                        <th>Conteudo M2</th>
+                        <th>Metodologia</th>
+                        <th>Avaliacao</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(planos) { %>
+                    <tr>
+                        <td><%= planos.disciplina %></td>
+                        <td><%= planos.professorResponsavel %></td>
+                        <td><%= planos.coordenador %></td>
+                        <td><%= planos.atualização %></td>
+                        <td><%= planos.teoria %></td>
+                        <td><%= planos.prática %></td>
+                        <td><%= planos.total %></td>
+                        <td><%= planos.ementa %></td>
+                        <td><%= planos.objetivo %></td>
+                        <td><%= planos.contProgM1 %></td>
+                        <td><%= planos.contProgM2 %></td>
+                        <td><%= planos.metodologiaEnsino %></td>
+                        <td><%= planos.metodoAvaliação %></td>
+
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <button><a href="/">Início</a></button>
 </body>
+
 </html>

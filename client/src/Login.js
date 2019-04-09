@@ -30,8 +30,7 @@ class Login extends Component {
         </header>
         <body className="log">
             <h3>Digite seus dados para Acessar!</h3>
-
-            <form action="/entrar" method="POST">
+            <form action="/entrar" method="GET">
                 <input className="Input" type="text" placeholder="CPF" name="cpf"/>
                 <br/>
                 <input className="Input" type="password" placeholder="Senha" name="senha"/>

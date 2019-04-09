@@ -7,8 +7,8 @@ app.use(cors())
 
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
-//const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
+//const uri = "mongodb+srv://renan:bozzeda@old0-imqyh.mongodb.net/test?retryWrites=true";
+const uri = "mongodb+srv://admuser:admuser@devweblab-uni7g.mongodb.net/test?retryWrites=true";
 //const uri = "mongodb+srv://admin:admin@cluster0-ibzmn.mongodb.net/test?retryWrites=true";
 
 const port = process.env.PORT || 4000;
@@ -36,12 +36,12 @@ app.get('/entrar', function(req, res){
  });
 
  //procura no usuario no banco
- app.get('/entrar/:cpf', function(req, res){
+ app.get('/entrar', function(req, res){
     // Recebendo os parâmetros de um query string
     var id = req.params.id;
     // Fazendo uma consulta no banco de dados
     var params = {usuario : {cpf: cpf}};
-    collection.find(params).toArray(function(err, result){
+    collection("data.usuarios").find(params).toArray(function(err, result){
        res.render('ver', { usuario : result.usuario });
     });
  });
@@ -149,14 +149,14 @@ app.route("/cadastroTurma")
 
 
 
-app.route("/showUsuarios")
+app.route("/showUsers")
 .get((req, res) => {
     db.collection('data.usuarios').find().toArray((err, usuarios) => {
         if (err) return console.log(err)
 
         console.log("dentro da /showUsuarios")
 
-        res.render('showUsuarios.ejs', {data: usuarios})
+        res.render('/showUsers', {data: usuarios})
 
         console.log("chamou a ShowUsers")
     })
@@ -166,7 +166,7 @@ app.route("/showUsuarios")
         if (err) return console.log(err)
 
         console.log('salvo no banco de dados')
-        res.redirect('/showUsuarios')
+        res.redirect('/showUsers')
     })
 })
 

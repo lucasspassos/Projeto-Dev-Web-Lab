@@ -8,6 +8,7 @@ import NewPlan from "./NewPlan";
 import NewCourse from "./NewCourse"
 import NewDiscipline from "./NewDiscipline"
 import NewClass from "./NewClass";
+import ShowUsers from "./ShowUsers";
 
 const DefaultLayout = ({ children }) => {
   return <div className="layout">{children}</div>;
@@ -25,6 +26,7 @@ const RoutesPath = ({ Layout = DefaultLayout }) => {
         <Route path="/newCourse" component={NewCourse}/>
         <Route path="/newDiscipline" component={NewDiscipline}/>
         <Route path="/newClass" component={NewClass}/>
+        <Route path="/ShowUsers" component={ShowUsers}/>
         <Redirect from="/" to="/app" />
       </Switch>
     </Layout>
